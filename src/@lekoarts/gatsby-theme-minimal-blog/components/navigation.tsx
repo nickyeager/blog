@@ -24,6 +24,10 @@ const Navigation = ({ nav }: NavigationProps) => {
                             {item.title}
                         </TLink>
                     ))}
+
+                    <TLink key={'resume'} as={Link} activeClassName="active" >
+
+                    </TLink>
                 </nav>
             )}
         </React.Fragment>

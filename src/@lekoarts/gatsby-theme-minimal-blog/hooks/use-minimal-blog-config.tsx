@@ -21,7 +21,6 @@ type UseMinimalBlogConfigProps = {
 }
 
 const useMinimalBlogConfig = () => {
-    console.log('made it')
     const data = useStaticQuery<UseMinimalBlogConfigProps>(graphql`
     query {
       minimalBlogConfig {
@@ -43,7 +42,6 @@ const useMinimalBlogConfig = () => {
       }
     }
   `)
-console.log(data)
     return data.minimalBlogConfig
 }
 
