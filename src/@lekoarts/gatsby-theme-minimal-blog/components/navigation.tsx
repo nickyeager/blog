@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import useMinimalBlogConfig from "../hooks/use-minimal-blog-config"
 import replaceSlashes from "../utils/replaceSlashes"
 
+import Resume from "../../../../static/nickresumefix_afterquoteapro.pdf"
 type NavigationProps = {
     nav: {
         title: string
@@ -24,9 +25,8 @@ const Navigation = ({ nav }: NavigationProps) => {
                             {item.title}
                         </TLink>
                     ))}
-
-                    <TLink key={'resume'} as={Link} activeClassName="active" >
-
+                    <TLink key={'resume'} as={Link} href = {Resume} target = "_blank" activeClassName="active">
+                        Resume
                     </TLink>
                 </nav>
             )}
