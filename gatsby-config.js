@@ -7,15 +7,19 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 module.exports = {
   siteMetadata: {
     siteTitle: `Nick Yeager`,
+    author: "Nick Yeager",
     siteTitleAlt: `Nick Yeagers Development blogs`,
     siteHeadline: `Nicks development blog`,
-    siteUrl: `localhost:8000`,
+    siteUrl: `https://nickcyeager.com`,
+    siteDescription: 'Nick Yeagers Development blog',
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
+        formatString: `MM.DD.YYYY`,
+        feedTitle: `Nick Yeagers Dev site`,
         navigation: [
           {
             title: `Blog`,
