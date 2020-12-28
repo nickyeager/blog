@@ -1,0 +1,26 @@
+# Strategies for avoiding alpaca markets rate limits
+
+Creating a stock screener via rest api calls is both difficult and potentially expensive.
+
+Thankfully, we can use the numpy function `split_array` to split an array down the middle.
+
+```
+import alpaca_trade_api as tradeapi
+import numpy as np
+tickers = tradeapi.polygon.all_tickers() # this returns roughly 9,000 tickers as of the publishing date
+totalPrice = 0
+split_array = np.array_split(tickers, 200)
+        for stocks in enumerate(split_array):
+            bars = self.alpaca.get_barset(stocks, 'minute', 1)
+            for symbol in bars:
+              if (bars[symbol]):
+                symbol_bars = bars[symbol]
+                if (symbol_bars):
+                    totalPrice += symbol_bars[0].c
+                    print('totalPrice' + ' ' + str(totalPrice))
+```
+
+We first query to get a stock "Universe", then break apart the array into sub arrays with 200 elements each (the maximum number we're allowed to query based on the alpaca library syntax).
+We can then iterate through the minute bar results.
+
+This allows us to stay under the 200 stock per minute rate limit.
